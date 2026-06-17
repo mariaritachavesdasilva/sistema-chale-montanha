@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chalé Montanha — Reserva Online</title>
+    <meta name="description" content="Garanta sua estadia no Chalé Montanha de forma rápida, segura e sem burocracia. Reserve agora mesmo!">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Fundo desfocado com a foto do chalé -->
+    <div class="background-wrapper" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <a href="/" class="logo" id="logo-link">🏡 Chalé<span>Montanha</span></a>
+            <a href="/admin" class="admin-link" id="admin-panel-link">Painel do Anfitrião</a>
+        </header>
+
+        <!-- Seção de Impacto (Hero) -->
+        <section class="hero" id="hero-section">
+            <h1>Refúgio Perfeito nas Montanhas</h1>
+            <p>Desconecte-se da rotina e viva momentos inesquecíveis em meio à natureza, com o aconchego e a privacidade que você merece.</p>
+            <button class="hero-cta" id="scroll-to-booking" onclick="document.getElementById('booking-card').scrollIntoView({ behavior: 'smooth' })">Ver Disponibilidade</button>
+        </section>
+
+        <!-- Galeria de Imagens do Chalé -->
+        <section class="gallery-section" id="gallery-section" aria-label="Galeria de fotos do Chalé">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/static/chalet_exterior.png" alt="Vista exterior do chalé aconchegante cercado por pinheiros verdes em um dia nublado" loading="lazy">
+                    <div class="gallery-desc">Exterior do Chalé</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/static/chalet_interior.png" alt="Interior aconchegante do chalé com lareira acesa, poltronas de couro e janela com vista para as montanhas" loading="lazy">
+                    <div class="gallery-desc">Interior Acolhedor</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Card de Reserva (Glassmorphism) -->
+        <section class="booking-section" id="booking-section">
+            <div class="glass-card" id="booking-card">
+                
+                <!-- Formulário de Reservar (Visível Inicialmente) -->
+                <div id="booking-flow">
+                    <h2>Reserve Sua Estadia</h2>
+                    
+                    <!-- Calendário Dinâmico -->
+                    <div class="calendar-wrapper">
+                        <div class="calendar-header">
+                            <button id="prev-month" aria-label="Mês anterior" type="button">&lt;</button>
+                            <h3 id="current-month-year" style="font-family: var(--font-sans); font-size: 1.1rem; font-weight: 600;">Junho 2026</h3>
+                            <button id="next-month" aria-label="Próximo mês" type="button">&gt;</button>
+                        </div>
+                        <div class="calendar-grid" id="calendar-grid" role="grid" aria-label="Calendário de disponibilidade">
+                            <!-- Inserido dinamicamente via JS -->
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color legend-free"></div>
+                                <span>Livre</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color legend-booked"></div>
+                                <span>Ocupado</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color legend-selected"></div>
+                                <span>Selecionado</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dados do Hóspede -->
+                    <form id="reservation-form" novalidate>
+                        <div class="form-group">
+                            <label for="guest_name">Nome Completo</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="guest_name" name="guest_name" placeholder="Ex: João Silva" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guest_whatsapp">WhatsApp (com DDD)</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="guest_whatsapp" name="guest_whatsapp" placeholder="Ex: 11999999999" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guest_email">E-mail</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="guest_email" name="guest_email" placeholder="Ex: joao@email.com" required>
+                            </div>
+                        </div>
+
+                        <!-- Resumo do Preço -->
+                        <div class="price-summary" id="price-summary">
+                            <div class="price-row">
+                                <span>Diárias selecionadas</span>
+                                <span id="summary-nights">0 noites</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Preço por diária</span>
+                                <span>R$ 250,00</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Valor Total</span>
+                                <span id="summary-total">R$ 0,00</span>
+                            </div>
+                        </div>
+
+                        <!-- Botão CTA Enviar -->
+                        <button type="submit" class="btn-submit" id="btn-reserve" disabled>
+                            <span id="btn-text">Garantir Minha Reserva</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Ticket de Sucesso (Oculto Inicialmente) -->
+                <div class="ticket-card" id="success-flow">
+                    <div class="ticket-icon" aria-hidden="true">✨</div>
+                    <h3>Sua Reserva foi Pré-Aprovada!</h3>
+                    <p style="color: rgba(244, 241, 222, 0.85); margin-bottom: 20px;">
+                        Para garantir suas datas no calendário, por favor realize o pagamento via Pix no valor abaixo em até 2 horas.
+                    </p>
+
+                    <div class="ticket-details">
+                        <p><strong>Hóspede:</strong> <span id="ticket-guest-name"></span></p>
+                        <p><strong>Período:</strong> <span id="ticket-period"></span></p>
+                        <p><strong>Total de Noites:</strong> <span id="ticket-nights"></span></p>
+                        <p><strong>Valor a Pagar:</strong> <strong style="font-size: 1.2rem; color: var(--gold);" id="ticket-total"></strong></p>
+                    </div>
+
+                    <div class="pix-box">
+                        <p style="font-size: 0.9rem; margin-bottom: 8px; font-weight: 500;">Código Pix Copia e Cola:</p>
+                        <div class="pix-payload" id="pix-payload"></div>
+                        <button class="btn-copy" id="btn-copy-pix" type="button">Copiar Código Pix</button>
+                    </div>
+
+                    <a href="#" target="_blank" class="btn-whatsapp" id="btn-send-whatsapp">
+                        <span>Enviar Comprovante no WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast flutuante para notificações simples -->
+    <div class="toast" id="toast-message" role="alert" aria-live="polite"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Anfitrião — Chalé Montanha</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-wrapper" aria-hidden="true"></div>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <a href="/" class="logo" id="logo-home-link">🏡 Chalé<span>Montanha</span></a>
+            <a href="/" class="admin-link">Voltar ao Site</a>
+        </header>
+
+        <!-- Formulário de Acesso Administrativo (Token) -->
+        <section class="admin-login" id="admin-login-section">
+            <div class="glass-card">
+                <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Acesso ao Painel</h2>
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label for="admin_token">Token de Acesso (X-Admin-Token)</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="admin_token" name="admin_token" placeholder="Insira o token do anfitrião" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Entrar no Painel</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Painel de Gestão (Oculto Inicialmente) -->
+        <section class="admin-card" id="admin-dashboard-section" style="display: none;">
+            <div class="glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                    <h2>Painel de Gestão da Agenda</h2>
+                    <button class="btn-copy" id="btn-logout" type="button" style="border-color: #e63946; color: #e63946;">Sair do Painel</button>
+                </div>
+
+                <!-- Lista de Reservas -->
+                <div class="admin-table-wrapper">
+                    <table id="reservas-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Hóspede</th>
+                                <th>WhatsApp</th>
+                                <th>E-mail</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Preço Total</th>
+                                <th>Status</th>
+                                <th style="text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservas-tbody">
+                            <!-- Inserido dinamicamente via JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast flutuante para notificações -->
+    <div class="toast" id="toast-message" role="alert" aria-live="polite"></div>
+
+    <script src="/static/admin.js"></script>
+</body>
+</html>

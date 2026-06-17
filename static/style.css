@@ -1,0 +1,671 @@
+/* Importando fontes modernas e elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Paleta de Cores da Natureza */
+    --forest-green: #1b3a24;
+    --leaf-green: #2d5a27;
+    --moss-green: #4f772d;
+    --gold: #d4a373;
+    --cream: #f4f1de;
+    --dark: #1e1e1a;
+    
+    /* Variáveis Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.25);
+    --glass-blur: blur(14px);
+    
+    /* Tipografia */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--dark);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background flutuante com imagem do chalé para dar o clima do Glassmorphism */
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(135deg, rgba(27, 58, 36, 0.85) 0%, rgba(30, 30, 26, 0.95) 100%), 
+                      url('https://images.unsplash.com/photo-1549693578-d683be217e58?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+/* Container Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 40px 0;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--cream);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.admin-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    transition: all 0.3s ease;
+}
+
+.admin-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Seção Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 800px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: rgba(244, 241, 222, 0.8);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero-cta {
+    background: var(--gold);
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(212, 163, 115, 0.3);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(212, 163, 115, 0.5);
+}
+
+/* Galeria de Fotos Otimizada */
+.gallery-section {
+    margin-bottom: 80px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+}
+
+/* Card Principal (Glassmorphism) */
+.booking-section {
+    scroll-margin-top: 40px;
+    max-width: 800px;
+    margin: 0 auto 100px auto;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px var(--glass-shadow);
+}
+
+.glass-card h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--cream);
+}
+
+/* Calendário Estilizado (Sem bibliotecas complexas) */
+.calendar-wrapper {
+    margin-bottom: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header button {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--cream);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.calendar-header button:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: var(--gold);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.day-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding: 8px 0;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+    min-height: 44px; /* Acessibilidade Touch */
+}
+
+.calendar-day:hover:not(.disabled):not(.booked) {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.calendar-day.disabled {
+    color: rgba(255, 255, 255, 0.15);
+    cursor: not-allowed;
+    background: none;
+}
+
+.calendar-day.booked {
+    color: rgba(255, 255, 255, 0.3);
+    background: rgba(230, 57, 70, 0.15);
+    border: 1px solid rgba(230, 57, 70, 0.25);
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.calendar-day.selected {
+    background: var(--gold) !important;
+    color: var(--dark) !important;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);
+}
+
+.calendar-day.in-range {
+    background: rgba(212, 163, 115, 0.25);
+    border-color: var(--gold);
+}
+
+/* Status legenda do calendário */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.legend-free { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.15); }
+.legend-booked { background: rgba(230, 57, 70, 0.2); border: 1px solid rgba(230,57,70,0.3); }
+.legend-selected { background: var(--gold); }
+
+/* Formulário de Booking */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(244, 241, 222, 0.9);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--cream);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 163, 115, 0.2);
+}
+
+/* Resumo de Preços */
+.price-summary {
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid var(--glass-border);
+    display: none; /* Exibido apenas se datas selecionadas */
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.price-row.total {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--gold);
+}
+
+/* Botão Enviar */
+.btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(212, 163, 115, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 163, 115, 0.4);
+}
+
+.btn-submit:disabled {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Tela de Sucesso / Ticket de Reserva */
+.ticket-card {
+    text-align: center;
+    display: none;
+}
+
+.ticket-icon {
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+.ticket-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--cream);
+}
+
+.ticket-details {
+    background: rgba(0,0,0,0.3);
+    border: 1px dashed var(--gold);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.ticket-details p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.ticket-details strong {
+    color: var(--gold);
+}
+
+.pix-box {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.pix-payload {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #a8dadc;
+    word-break: break-all;
+    max-height: 100px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.btn-copy {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--cream);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-copy:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: white;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Spinner de carregamento */
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: var(--dark);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Área Administrativa */
+.admin-card {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.admin-login {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.admin-table-wrapper {
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+th {
+    color: var(--gold);
+    font-weight: 600;
+    background: rgba(0,0,0,0.2);
+}
+
+tr:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-pendente {
+    background: rgba(212, 163, 115, 0.2);
+    color: var(--gold);
+    border: 1px solid rgba(212, 163, 115, 0.3);
+}
+
+.status-confirmada {
+    background: rgba(46, 196, 182, 0.2);
+    color: #2ec4b6;
+    border: 1px solid rgba(46, 196, 182, 0.3);
+}
+
+.status-cancelada {
+    background: rgba(230, 57, 70, 0.2);
+    color: #e63946;
+    border: 1px solid rgba(230, 57, 70, 0.3);
+}
+
+.btn-action {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 5px;
+    transition: opacity 0.2s;
+}
+
+.btn-action:hover {
+    opacity: 0.85;
+}
+
+.btn-confirm {
+    background: #2ec4b6;
+    color: var(--dark);
+}
+
+.btn-cancel {
+    background: #e63946;
+    color: white;
+}
+
+/* Toast de feedback */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(30, 30, 26, 0.95);
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade Mobile-First */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .glass-card {
+        padding: 24px 16px;
+    }
+    
+    th, td {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+}
