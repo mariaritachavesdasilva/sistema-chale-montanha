@@ -1,4 +1,4 @@
-# 🏡 Projeto VEM — Sistema Inteligente de Gestão de Reservas para Chalés
+# Projeto VEM — Sistema Inteligente de Gestão de Reservas para Chalés
 
 ## Visão Geral
 
@@ -53,7 +53,7 @@ Do problema real ao deploy em produção: formando engenheiros de software capaz
 
 O Projeto VEM integra princípios de Engenharia de Requisitos, Spec-Driven Development (SDD), AI-First Engineering e simplicidade orientada a valor. O objetivo é garantir que cada funcionalidade exista por uma necessidade real do usuário, evitando complexidade desnecessária e reduzindo alucinações dos agentes.
 
-## 🏗️ Arquitetura Padrão Ouro
+##  Arquitetura Padrão Ouro
 
 ```text
 Usuário
@@ -96,7 +96,7 @@ Camada segura de ferramentas utilizada pelos agentes para acesso controlado a ba
 
 Persistência local seguindo o princípio Offline-First.
 
-## 🧠 Fontes da Verdade
+##  Fontes da Verdade
 
 ### Regras de Negócio e Governança
 
@@ -110,7 +110,7 @@ O arquivo `SCHEMA.md` é a fonte única da verdade para contratos de dados, APIs
 
 Toda alteração estrutural deve partir do SCHEMA.md.
 
-## 🛂 Agentes Especializados
+##  Agentes Especializados
 
 ### José — Frontend
 
@@ -132,7 +132,7 @@ Responsável por testes unitários, integração e validação E2E.
 
 Responsável por empacotamento, publicação e entrega.
 
-## ⚖️ Regras Inegociáveis
+##  Regras Inegociáveis
 
 * Pense antes de codar.
 * Regra 80/20.
@@ -141,7 +141,7 @@ Responsável por empacotamento, publicação e entrega.
 * Documentação antes da implementação.
 * JSON is Law.
 
-## 🔄 Fluxo Operacional
+##  Fluxo Operacional
 
 1. Contexto (VCC)
 2. Planejamento
@@ -150,6 +150,6 @@ Responsável por empacotamento, publicação e entrega.
 5. Learn
 6. Ship
 
-## 🎯 Objetivo Final
+##  Objetivo Final
 
 Transformar problemas reais em software utilizável, resiliente e rastreável através de uma metodologia estruturada que combine Engenharia de Requisitos, IA Generativa, Arquitetura Orientada a Agentes e desenvolvimento guiado por especificações.
